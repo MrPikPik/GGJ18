@@ -2787,8 +2787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0521738dd51e84695a2786de216c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XRollOff: 0.005
-  YRollOff: 0.0025
+  XRollOff: 0
+  YRollOff: 0
 --- !u!1 &607993926
 GameObject:
   m_ObjectHideFlags: 0

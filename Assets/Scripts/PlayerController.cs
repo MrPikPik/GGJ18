@@ -24,14 +24,19 @@ public class PlayerController : MonoBehaviour {
         this.player = gameObject.transform;
     }
 
-    void Update () {
+    void FixedUpdate () {
         Vector3 movementDelta = Vector3.zero;
         if(Mathf.Abs(Input.GetAxis("MoveY")) > deadzone) {
-            movementDelta += (player.right * -Input.GetAxis("MoveY"));
+            movementDelta += player.right * -Input.GetAxis("MoveY");
+        } else if(Input.GetButton("Forward")) {
+            movementDelta += player.right * Input.GetAxis("Forward");
         }
         if(Mathf.Abs(Input.GetAxis("MoveX")) > deadzone) {
-            movementDelta += (player.forward * -Input.GetAxis("MoveX"));
+            movementDelta += player.forward * -Input.GetAxis("MoveX");
+        } else if(Input.GetButton("Right")) {
+            movementDelta += player.forward * -Input.GetAxis("Right");
         }
+
         player.Translate(movementDelta.normalized * Time.deltaTime * baseSpeed);
 
         UpdateLookDirection();
@@ -39,35 +44,35 @@ public class PlayerController : MonoBehaviour {
         switch(lookDirection) {
             case LookDirection.NorthEast:
                 playerVisuals.GetComponent<SpriteRenderer>().flipX = true;
-                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, Input.GetAxis("MoveY") * spriteMaxAngle + 90.0f, 0.0f));
+                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, (Input.GetAxis("MoveY") + -Input.GetAxis("Forward")) * spriteMaxAngle + 90.0f, 0.0f));
                 break;
             case LookDirection.NorthWest:
                 playerVisuals.GetComponent<SpriteRenderer>().flipX = false;
-                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, -Input.GetAxis("MoveY") * spriteMaxAngle + 90.0f, 0.0f));
+                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, (-Input.GetAxis("MoveY") + Input.GetAxis("Forward")) * spriteMaxAngle + 90.0f, 0.0f));
                 break;
             case LookDirection.SouthEast:
                 playerVisuals.GetComponent<SpriteRenderer>().flipX = true;
-                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, Input.GetAxis("MoveY") * spriteMaxAngle + 90.0f, 0.0f));
+                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, (Input.GetAxis("MoveY") + -Input.GetAxis("Forward")) * spriteMaxAngle + 90.0f, 0.0f));
                 break;
             case LookDirection.SouthWest:
                 playerVisuals.GetComponent<SpriteRenderer>().flipX = false;
-                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, -Input.GetAxis("MoveY") * spriteMaxAngle + 90.0f, 0.0f));
+                playerVisuals.transform.rotation = Quaternion.Euler(new Vector3(0.0f, (-Input.GetAxis("MoveY") + Input.GetAxis("Forward")) * spriteMaxAngle + 90.0f, 0.0f));
                 break;
         }
 
-        Vector2 v = new Vector2(Input.GetAxis("MoveX"), Input.GetAxis("MoveY"));
+        Vector2 v = new Vector2(Input.GetAxis("MoveX") + Input.GetAxis("Forward"), Input.GetAxis("MoveY") + Input.GetAxis("Right"));
         anim.SetFloat("WalkSpeed", v.magnitude);
     }
 
     void UpdateLookDirection() {
-        if(Input.GetAxis("MoveY") > deadzone) {
+        if(Input.GetAxis("MoveY") > deadzone || Input.GetAxis("Forward") > 0.0f) {
             forward = false;
-        } else if(Input.GetAxis("MoveY") < -deadzone) {
+        } else if(Input.GetAxis("MoveY") < -deadzone || Input.GetAxis("Forward") < 0.0f) {
             forward = true;
         }
-        if(Input.GetAxis("MoveX") > deadzone) {
+        if(Input.GetAxis("MoveX") > deadzone || Input.GetAxis("Right") > 0.0f) {
             right = false;
-        } else if(Input.GetAxis("MoveX") < -deadzone) {
+        } else if(Input.GetAxis("MoveX") < -deadzone || Input.GetAxis("Right") < 0.0f) {
             right = true;
         }
 
