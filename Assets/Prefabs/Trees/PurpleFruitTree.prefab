@@ -217,11 +217,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4393638152652558}
-  - component: {fileID: 65367025837050334}
   - component: {fileID: 114405998310695172}
   - component: {fileID: 114659927266704600}
   - component: {fileID: 65202174986307454}
   - component: {fileID: 95653719444699948}
+  - component: {fileID: 136531419832987058}
   m_Layer: 0
   m_Name: PurpleFruitTree
   m_TagString: Untagged
@@ -964,18 +964,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.64, y: 2.6, z: 5.21}
   m_Center: {x: 0, y: 1.41, z: 0}
---- !u!65 &65367025837050334
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1877596130233408}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.78, y: 4.87, z: 3.2}
-  m_Center: {x: -0.02, y: 2.14, z: 0}
 --- !u!95 &95653719444699948
 Animator:
   serializedVersion: 3
@@ -1042,3 +1030,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269db10051819754ea9746243da01852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136531419832987058
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1877596130233408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.67
+  m_Height: 9
+  m_Direction: 1
+  m_Center: {x: 0, y: 3, z: 0}

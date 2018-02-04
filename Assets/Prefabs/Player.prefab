@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 20271257141573042}
   - component: {fileID: 124660995430661180}
   - component: {fileID: 81925104550062062}
+  - component: {fileID: 114493386452828036}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -37,9 +38,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4124602431134504}
-  - component: {fileID: 65993020120256182}
   - component: {fileID: 54542680737157226}
   - component: {fileID: 114370418473006260}
+  - component: {fileID: 136517570491099224}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808501406189646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: 0}
+  m_LocalPosition: {x: -23, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4754353948861950}
@@ -157,18 +158,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &65993020120256182
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808501406189646}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.85, y: 2, z: 1.6}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!81 &81925104550062062
 AudioListener:
   m_ObjectHideFlags: 1
@@ -286,7 +275,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95549457753992950}
   baseSpeed: 5
+  spriteMaxAngle: 35
   playerVisuals: {fileID: 1868808040483338}
+--- !u!114 &114493386452828036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730064282189166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: c28d971d60e712b40adb1caf7f74489c, type: 2}
 --- !u!124 &124660995430661180
 Behaviour:
   m_ObjectHideFlags: 1
@@ -294,6 +296,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730064282189166}
   m_Enabled: 1
+--- !u!136 &136517570491099224
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808501406189646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!212 &212175947839022680
 SpriteRenderer:
   m_ObjectHideFlags: 1

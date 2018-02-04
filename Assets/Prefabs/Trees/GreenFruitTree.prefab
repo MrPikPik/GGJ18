@@ -151,11 +151,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4799407289092496}
-  - component: {fileID: 65146878665502724}
   - component: {fileID: 114721611971199824}
   - component: {fileID: 114568831699851344}
   - component: {fileID: 65868724826707840}
   - component: {fileID: 95160212504093348}
+  - component: {fileID: 136220306102651882}
   m_Layer: 0
   m_Name: GreenFruitTree
   m_TagString: Untagged
@@ -952,18 +952,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937901815195182}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65146878665502724
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1469053221114312}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.78, y: 4.87, z: 3.2}
-  m_Center: {x: -0.02, y: 2.14, z: 0}
 --- !u!65 &65868724826707840
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1042,3 +1030,16 @@ MonoBehaviour:
   - {fileID: 23989409460421510}
   - {fileID: 23881536452765608}
   - {fileID: 23509563935128584}
+--- !u!136 &136220306102651882
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469053221114312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.67
+  m_Height: 9
+  m_Direction: 1
+  m_Center: {x: 0, y: 3, z: 0}
